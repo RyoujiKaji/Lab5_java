@@ -1,0 +1,104 @@
+@charset "windows-1251";
+.center {
+    text-align: center;
+}
+
+.enter {
+    text-align: center;
+    background: white;
+    border: solid 1px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+    height: 200px;
+}
+
+#newRequest {
+    text-align: center;
+    background: white;
+    border: solid 1px;
+    visibility: hidden;
+}
+
+#reg {
+    text-align: center;
+    background: white;
+    border: solid 1px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 400px;
+    height: 300px;
+}
+
+.error {
+    display: inline-block;
+    color: red;
+    font-size: 12pt;
+}
+
+.errore {
+    color: red;
+}
+
+#stop {
+    visibility: hidden;
+}
+
+#safe {
+    visibility: hidden;
+}
+
+body {
+    background-color: azure;
+}
+
+#requests {
+    border-collapse: collapse;
+    border: 1px solid black;
+    margin: 30px auto;
+}
+
+#exitd {
+    text-align: right;
+}
+
+.down {
+    position: absolute;
+    bottom: 5px;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td, th{
+    border: 3px solid black;
+}
+
+.textcols {
+    display: table;
+    border-collapse: collapse;
+}
+
+.textcols-row {
+    display: table-row;
+    margin: 10px;
+}
+
+.textcols-item, .error {
+    display: table-cell;
+    margin: 10px;
+    margin-top: 0px;
+    vertical-align: top;
+    padding: 0;
+}
+
