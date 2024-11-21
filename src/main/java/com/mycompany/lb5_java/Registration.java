@@ -11,7 +11,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import clients_processing.Client;
+import clients_processing.*;
+import jsons.JSONParser;
 
 /**
  *
@@ -43,6 +44,12 @@ public class Registration extends HttpServlet {
                 request.getParameter("login"),
                 request.getParameter("password")
         );
+        
+        Person p = new JSONParser().parse("dfd");
+        try (PrintWriter out = response.getWriter()) {
+
+            out.println(p.getName());
+        }
         
     }
 

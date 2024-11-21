@@ -4,12 +4,21 @@
  */
 package jsons;
 
-//import com.fasterxml.jackson.*;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import clients_processing.*;
 
-/**
- *
- * @author Nadezhda_N
- */
 public class JSONParser {
+
+    String jsonString = "{\"name\":\"John\", \"age\":30, \"city\":\"New York\"}";
     
+    public Person parse(String jsonStr) {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            Person person = objectMapper.readValue(jsonString, Person.class);
+            return person;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;//????? 
+        } 
+    }
 }
