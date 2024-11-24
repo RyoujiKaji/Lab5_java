@@ -1,6 +1,10 @@
+fileEditor\MyFileWriter.class
+com\mycompany\lb5_java\Enter.class
+clients_processing\JSONWriterClients.class
+clients_processing\ClientsArr.class
+clients_processing\JSONParserClients.class
+com\mycompany\lb5_java\Registration.class
 clients_processing\Person.class
-Lb5\Enter.class
-Lb5\Registration.class
+fileEditor\MyFileReader.class
 clients_processing\ClientInformation.class
 clients_processing\Client.class
-jsons\JSONParser.class

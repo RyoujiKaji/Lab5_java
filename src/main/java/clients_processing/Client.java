@@ -4,7 +4,7 @@
  */
 package clients_processing;
 
-import java.util.Date;
+//import java.util.Date;
 
 /**
  *
@@ -15,6 +15,11 @@ public class Client {
     private String email;
     private ClientInformation clientInformation;
 
+    public Client (){
+        this.email="";
+        this.clientInformation=new ClientInformation();
+    }
+    
     public Client(String email, String name, String date, String login, String password) {
         this.clientInformation=new ClientInformation(name, date, login, password);
         this.email = email;

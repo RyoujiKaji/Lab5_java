@@ -1,0 +1,13 @@
+{
+  "list": [
+    {
+      "email": "p@ds.s",
+      "clientInformation": {
+        "name": "oooo",
+        "date": "2006-05-05",
+        "login": "jjj",
+        "password": "jjj"
+      }
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 package clients_processing;
 
-import java.util.Date;
+//import java.util.Date;
 
 /**
  *
@@ -13,6 +13,13 @@ class ClientInformation {
     private String login;
     private String password;
 
+    public ClientInformation(){
+        this.name="";
+        this.date="";
+        this.login="";
+        this.password="";
+    }
+    
     public ClientInformation(String name, String date, String login, String password) {
         this.name = name;
         this.date = date;

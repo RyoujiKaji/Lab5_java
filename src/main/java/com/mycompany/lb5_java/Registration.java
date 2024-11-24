@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package Lb5;
+package com.mycompany.lb5_java;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import clients_processing.*;
-import jsons.JSONParser;
+import fileEditor.*;
 
 /**
  *
@@ -36,21 +36,42 @@ public class Registration extends HttpServlet {
 //        try (PrintWriter out = response.getWriter()) {
 //           out.println(request.getParameter("bday"));
 //        }
-       
-        Client client= new Client(
+
+        Client client = new Client(
                 request.getParameter("email"),
                 request.getParameter("name"),
                 request.getParameter("bday"),
                 request.getParameter("login"),
                 request.getParameter("password")
         );
-        
-        Person p = new JSONParser().parse("dfd");
-        try (PrintWriter out = response.getWriter()) {
+        try {
+            ClientsArr clientsArr = new ClientsArr();
+            clientsArr.add(client);
+            String str = new JSONWriterClients().write(clientsArr);
+            String filePath = getServletContext().getRealPath("/") + "clients.json";
+            new MyFileWriter().writeJSON(filePath, str);
+           
+//            try (PrintWriter out = response.getWriter()) {
+//
+//                out.println(str);
+//            }
+//            try (PrintWriter out = response.getWriter()) {
+//
+//                out.println("fffff");
+//            }
+            clientsArr = new JSONParserClients().
+                    parse(new MyFileReader().readJSON(filePath));
+            try (PrintWriter out = response.getWriter()) {
 
-            out.println(p.getName());
+                out.println(clientsArr.getList().getFirst().getEmail());
+            }
+        } catch (Exception e) {
+            try (PrintWriter out = response.getWriter()) {
+
+                out.println(e.getMessage());
+            }
         }
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
