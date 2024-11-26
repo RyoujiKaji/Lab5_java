@@ -16,7 +16,7 @@ import java.io.IOException;
  */
 public class MyFileWriter {
 
-    public void writeJSON(String way, String str) throws IOException{
+    public static void writeJSON(String way, String str) throws IOException{
       
         //String filePath = "output.json";
        try (BufferedWriter writer = new BufferedWriter(new FileWriter(way))) {

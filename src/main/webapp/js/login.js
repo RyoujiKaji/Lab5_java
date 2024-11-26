@@ -8,10 +8,7 @@ $(document).ready(function () {
         $.ajax({
             type: 'POST',
             url: 'Enter',
-            data: form,
-            success: function (response) {
-                alert(response);
-            }
+            data: form
         });
     });
 });

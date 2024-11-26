@@ -32,12 +32,7 @@
                 <div class="textcols-row">
                     <label class="textcols-item">Электронная почта</label>
                     <input class="textcols-item" type="text" name="email">
-                    <p class="error" id="error_email"></p>
-                </div>
-                <div class="textcols-row">
-                    <label class="textcols-item">Логин </label>
-                    <input class="textcols-item" type="text" name="login">
-                    <p class="error" id="error_login"></p>
+                    <p class="error" id="error_email">${badRegistration}</p>
                 </div>
                 <div class="textcols-row"> 
                     <label class="textcols-item">Пароль </label>
@@ -55,7 +50,6 @@
                     <a href="index.jsp">Войти</a>
                 </p>
             </form>
-            <div id="error_registr" class="error"></div>
         </div>
         <p class = "down">Today <%= new java.util.Date()%></p>
     </body>

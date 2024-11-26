@@ -18,7 +18,7 @@ public class JSONWriterClients {
 // person.setAge(30);
 // person.setCity("New York");
 
-    public String write(ClientsArr clients) {
+    public static String write(ClientsArr clients) {
         Gson gson = new GsonBuilder()
                 .setPrettyPrinting()
                 .create();

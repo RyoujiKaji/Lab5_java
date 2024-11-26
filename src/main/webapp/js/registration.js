@@ -38,14 +38,10 @@ $(document).ready(function () {
         $.ajax({
             type: 'POST',
             url: 'Registration',
-            data: form,
-            success: function(response){
-                alert(response);
-            }
+            data: form
         });
 
-        //
-        //alert(form.name);
+       
     });
 });
 

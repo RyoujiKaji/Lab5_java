@@ -11,8 +11,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import clients_processing.*;
-import fileEditor.*;
+import clients_processing.Client;
+import clients_processing.Processing;
+//import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
+//import fileEditor.*;
 
 /**
  *
@@ -41,37 +44,48 @@ public class Registration extends HttpServlet {
                 request.getParameter("email"),
                 request.getParameter("name"),
                 request.getParameter("bday"),
-                request.getParameter("login"),
                 request.getParameter("password")
         );
-        try {
-            ClientsArr clientsArr = new ClientsArr();
-            clientsArr.add(client);
-            String str = new JSONWriterClients().write(clientsArr);
-            String filePath = getServletContext().getRealPath("/") + "clients.json";
-            new MyFileWriter().writeJSON(filePath, str);
-           
-//            try (PrintWriter out = response.getWriter()) {
-//
-//                out.println(str);
-//            }
-//            try (PrintWriter out = response.getWriter()) {
-//
-//                out.println("fffff");
-//            }
-            clientsArr = new JSONParserClients().
-                    parse(new MyFileReader().readJSON(filePath));
-            try (PrintWriter out = response.getWriter()) {
+//        try (PrintWriter out = response.getWriter()) {
+//            out.println(request.getParameter("bday"));
+//        }
 
-                out.println(clientsArr.getList().getFirst().getEmail());
-            }
-        } catch (Exception e) {
-            try (PrintWriter out = response.getWriter()) {
+        HttpSession session = request.getSession();
 
-                out.println(e.getMessage());
-            }
+        //сделать с отправкой на фронт
+        if (new Processing().process(client)) {
+            //ServletContext servletContext=getServletContext();
+            session.setAttribute("goodRegistration", "Регистрация прошла успешно");
+            getServletContext().getRequestDispatcher("/index.jsp").
+                    forward(request, response);
+            response.sendRedirect(request.getContextPath()+"/index.jsp");
+        } else {
+            session.setAttribute("badRegistration", "Пользователь с такой почтой"
+                    + " уже зарегистрирован");
+            getServletContext().getRequestDispatcher("/registration.jsp").
+                    forward(request, response);
+            response.sendRedirect(request.getContextPath()+"/registration.jsp");
         }
-
+//Проверка работы с JSON
+//        try {
+//            ClientsArr clientsArr = new ClientsArr();
+//            clientsArr.add(client);
+//            String str = new JSONWriterClients().write(clientsArr);
+//            String filePath = getServletContext().getRealPath("/") + "clients.json";
+//            new MyFileWriter().writeJSON(filePath, str);
+//
+//            clientsArr = new JSONParserClients().
+//                    parse(new MyFileReader().readJSON(filePath));
+//            try (PrintWriter out = response.getWriter()) {
+//
+//                out.println(clientsArr.getList().getFirst().getEmail());
+//            }
+//        } catch (Exception e) {
+//            try (PrintWriter out = response.getWriter()) {
+//
+//                out.println(e.getMessage());
+//            }
+//        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

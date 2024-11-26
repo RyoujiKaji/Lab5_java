@@ -21,9 +21,10 @@
         <h3 class = "center">Вариант 12</h3>
         <p class = "center">Игровой портал</p>
         <div class = "enter">
+            <p>${goodRegistration}</p>
             <form id="enter_form">
-                <p>Логин:<input type = "text" name = "login"></p>
-                <p id = "error_login" class = "error"></p>
+                <p>Электронная почта:<input type = "text" name = "email"></p>
+                <p id = "error_email" class = "error"></p>
                 <p>Пароль:<input type = "text" name = "password"></p>
                 <p id = "error_password" class = "error"></p>
                 <input type="button" value="Войти" id="enter">

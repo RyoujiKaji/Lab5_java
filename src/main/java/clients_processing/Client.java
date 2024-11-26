@@ -20,8 +20,8 @@ public class Client {
         this.clientInformation=new ClientInformation();
     }
     
-    public Client(String email, String name, String date, String login, String password) {
-        this.clientInformation=new ClientInformation(name, date, login, password);
+    public Client(String email, String name, String date, String password) {
+        this.clientInformation=new ClientInformation(name, date, password);
         this.email = email;
     }
 

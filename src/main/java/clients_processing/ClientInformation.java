@@ -10,20 +10,17 @@ class ClientInformation {
 
     private String name;
     private String date;
-    private String login;
     private String password;
 
     public ClientInformation(){
         this.name="";
         this.date="";
-        this.login="";
         this.password="";
     }
     
-    public ClientInformation(String name, String date, String login, String password) {
+    public ClientInformation(String name, String date, String password) {
         this.name = name;
         this.date = date;
-        this.login = login;
         this.password = password;
     }
 
@@ -33,10 +30,6 @@ class ClientInformation {
 
     public void setDate(String date) {
         this.date = date;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
     }
 
     public void setPassword(String password) {
@@ -49,10 +42,6 @@ class ClientInformation {
 
     public String getDate() {
         return date;
-    }
-
-    public String getLogin() {
-        return login;
     }
 
     public String getPassword() {

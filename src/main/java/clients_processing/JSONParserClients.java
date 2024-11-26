@@ -5,14 +5,18 @@
 package clients_processing;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.IOException;
 
 public class JSONParserClients {
 
     //String jsonString = "{\"name\":\"John\", \"age\":30, \"city\":\"New York\"}";
     
-    public ClientsArr parse(String jsonString) throws Exception{
+    public static ClientsArr parse(String jsonString) throws IOException{
         //try {
             ObjectMapper objectMapper = new ObjectMapper();
+            if(jsonString.equals("")){
+                return new ClientsArr();
+            }
             ClientsArr clientsArr = objectMapper.readValue(jsonString, ClientsArr.class);
             return clientsArr;
        // }
